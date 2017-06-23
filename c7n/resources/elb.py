@@ -56,6 +56,7 @@ class ELB(QueryResourceManager):
         id = 'LoadBalancerName'
         filter_name = 'LoadBalancerNames'
         filter_type = 'list'
+        config_type = "AWS::ElasticLoadBalancing::LoadBalancer"
         name = 'DNSName'
         date = 'CreatedTime'
         dimension = 'LoadBalancerName'

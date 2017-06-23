@@ -63,6 +63,7 @@ class ASG(QueryResourceManager):
         enum_spec = ('describe_auto_scaling_groups', 'AutoScalingGroups', None)
         filter_name = 'AutoScalingGroupNames'
         filter_type = 'list'
+        config_type = "AWS::AutoScaling::AutoScalingGroup"
         default_report_fields = (
             'AutoScalingGroupName',
             'CreatedTime',
