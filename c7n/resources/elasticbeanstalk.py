@@ -25,6 +25,7 @@ class ElasticBeanstalk(QueryResourceManager):
         name = "ApplicationName"
         id = "ApplicationName"
         dimension = None
+        config_type = "AWS::ElasticBeanstalk::Application"
         default_report_fields = (
             'ApplicationName',
             'DateCreated',

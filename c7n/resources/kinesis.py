@@ -31,6 +31,7 @@ class KinesisStream(QueryResourceManager):
         name = id = 'StreamName'
         filter_name = None
         filter_type = None
+        config_type = "AWS::Kinesis::Stream"
         date = None
         dimension = 'StreamName'
 

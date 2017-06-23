@@ -30,6 +30,7 @@ class ECR(QueryResourceManager):
         name = "repositoryName"
         id = "repositoryArn"
         dimension = None
+        config_type = "AWS::ECR::Repository"
 
 
 @ECR.filter_registry.register('cross-account')

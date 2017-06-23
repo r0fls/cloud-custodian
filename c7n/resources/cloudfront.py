@@ -26,6 +26,7 @@ class Distribution(QueryResourceManager):
     class resource_type(object):
         service = 'cloudfront'
         enum_spec = ('list_distributions', 'DistributionList.Items', None)
+        config_type = "AWS::CloudFront::Distribution"
         id = 'Id'
         name = 'DomainName'
         date = 'LastModifiedTime'

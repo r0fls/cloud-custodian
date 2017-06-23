@@ -33,6 +33,7 @@ class Alarm(QueryResourceManager):
         filter_name = 'AlarmNames'
         filter_type = 'list'
         name = 'AlarmName'
+        config_type = "AWS::CloudWatch::Alarm"
         date = 'AlarmConfigurationUpdatedTimestamp'
         dimension = None
 

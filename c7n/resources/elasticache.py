@@ -56,6 +56,7 @@ class ElastiCacheCluster(QueryResourceManager):
         name = id = 'CacheClusterId'
         filter_name = 'CacheClusterId'
         filter_type = 'scalar'
+        config_type = "AWS::ElastiCache::CacheCluster"
         date = 'CacheClusterCreateTime'
         dimension = 'CacheClusterId'
 

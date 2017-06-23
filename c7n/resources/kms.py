@@ -50,6 +50,7 @@ class KeyAlias(KeyBase, QueryResourceManager):
         service = 'kms'
         type = 'key-alias'
         enum_spec = ('list_aliases', 'Aliases', None)
+        config_type = "AWS::KMS::Key"
         name = "AliasName"
         id = "AliasArn"
         dimension = None
