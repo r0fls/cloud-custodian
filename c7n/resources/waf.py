@@ -25,7 +25,6 @@ class WAF(QueryResourceManager):
         enum_spec = ("list_web_acls", "WebACLs", None)
         detail_spec = ("get_web_acl", "WebACLId", "WebACLId", "WebACL")
         name = "Name"
-        config_type = "AWS::WAF::WebACL"
         id = "WebACLId"
         dimension = "WebACL"
 
@@ -38,6 +37,5 @@ class RegionalWAF(QueryResourceManager):
         enum_spec = ("list_web_acls", "WebACLs", None)
         detail_spec = ("get_web_acl", "WebACLId", "WebACLId", "WebACL")
         name = "Name"
-        config_type = "AWS::WAF::WebACL"
         id = "WebACLId"
         dimension = "WebACL"

@@ -35,7 +35,6 @@ class ElasticSearchDomain(QueryResourceManager):
             'list_domain_names', 'DomainNames[].DomainName', None)
         id = 'DomainName'
         name = 'Name'
-        config_type = "AWS::Elasticsearch::Domain"
         dimension = "DomainName"
 
     _generate_arn = _account_id = None

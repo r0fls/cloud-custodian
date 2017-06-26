@@ -59,7 +59,6 @@ class Snapshot(QueryResourceManager):
         id = 'SnapshotId'
         filter_name = 'SnapshotIds'
         filter_type = 'list'
-        config_type = "AWS::EC2::Volume"
         name = 'SnapshotId'
         date = 'StartTime'
         dimension = None

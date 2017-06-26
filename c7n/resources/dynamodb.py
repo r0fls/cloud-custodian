@@ -39,7 +39,6 @@ class Table(QueryResourceManager):
         detail_spec = ("describe_table", "TableName", None, "Table")
         id = 'Table'
         filter_name = None
-        config_type = "AWS::DynamoDB::Table"
         name = 'TableName'
         date = 'CreationDateTime'
         dimension = 'TableName'
