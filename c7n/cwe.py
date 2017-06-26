@@ -67,6 +67,14 @@ class CloudWatchEvents(object):
             'ids': 'requestParameters.loadBalancerName',
             'source': 'elasticloadbalancing.amazonaws.com'},
 
+        'ElasticsearchDomain': {
+            'ids': 'requestParameters.domainName',
+            'source': 'es.amazonaws.com'},
+
+        'DynamoDBTable': {
+            'ids': 'requestParameters.tableName',
+            'source': 'dynamodb.amazonaws.com"'},
+
         'RunInstances': {
             'ids': 'responseElements.instancesSet.items[].instanceId',
             'source': 'ec2.amazonaws.com'}}
