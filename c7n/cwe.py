@@ -67,11 +67,11 @@ class CloudWatchEvents(object):
             'ids': 'requestParameters.loadBalancerName',
             'source': 'elasticloadbalancing.amazonaws.com'},
 
-        'ElasticsearchDomain': {
+        'CreateElasticsearchDomain': {
             'ids': 'requestParameters.domainName',
             'source': 'es.amazonaws.com'},
 
-        'DynamoDBTable': {
+        'CreateTable': {
             'ids': 'requestParameters.tableName',
             'source': 'dynamodb.amazonaws.com"'},
 
