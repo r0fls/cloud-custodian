@@ -439,6 +439,9 @@ class LambdaMode(PolicyExecutionMode):
                 "policy: %s resources: %s no resources matched" % (
                     self.policy.name, self.policy.resource_type))
             return
+        with self.policy.ctx:
+            self.policy._write_file(
+                'resources.json', utils.dumps(resources, indent=2))
 
         self.policy.ctx.metrics.put_metric(
             'ResourceCount', len(resources), 'Count', Scope="Policy",
