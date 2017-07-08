@@ -440,15 +440,7 @@ class LambdaMode(PolicyExecutionMode):
                 "policy: %s resources: %s no resources matched" % (
                     self.policy.name, self.policy.resource_type))
             return
-        self.policy.ctx.output.key_prefix = os.path.join(
-                region,
-                self.policy.ctx.output.key_prefix)
-        log.info(self.policy.ctx.output.key_prefix)
         with self.policy.ctx:
-            self.policy.ctx.output.key_prefix = os.path.join(
-                region,
-                self.policy.ctx.output.key_prefix)
-            log.info(self.policy.ctx.output.key_prefix)
             self.policy._write_file(
                 region, 'resources.json', utils.dumps(resources, indent=2))
 
