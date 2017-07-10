@@ -19,10 +19,6 @@ from c7n.output import FSOutput, MetricsOutput, CloudWatchLogOutput
 from c7n.utils import reset_session_cache
 
 
-class Event(object):
-    pass
-
-
 class ExecutionContext(object):
     """Policy Execution Context."""
 
@@ -32,16 +28,18 @@ class ExecutionContext(object):
         self.session_factory = session_factory
         self.cloudwatch_logs = None
         self.start_time = None
-        self.event = Event()
-        self.event.region = None
 
         metrics_enabled = getattr(options, 'metrics_enabled', None)
         factory = MetricsOutput.select(metrics_enabled)
         self.metrics = factory(self)
 
         output_dir = getattr(options, 'output_dir', '')
-
-        self.set_output(output_dir)
+        if output_dir:
+            factory = FSOutput.select(output_dir)
+            self.output_path = factory.join(output_dir, policy.name)
+            self.output = factory(self)
+        else:
+            self.output_path = self.output = None
 
         if options.log_group:
             self.cloudwatch_logs = CloudWatchLogOutput(self)
@@ -50,19 +48,6 @@ class ExecutionContext(object):
     def log_dir(self):
         if self.output:
             return self.output.root_dir
-
-    def set_output(self, output_dir):
-        if output_dir:
-            factory = FSOutput.select(output_dir)
-            if self.event.region is not None:
-                self.output_path = factory.join(output_dir,
-                        self.event.region,
-                        self.policy.name)
-            else:
-                self.output_path = factory.join(output_dir, self.policy.name)
-            self.output = factory(self)
-        else:
-            self.output_path = self.output = None
 
     def __enter__(self):
         if self.output:

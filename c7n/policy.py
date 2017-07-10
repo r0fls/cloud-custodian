@@ -425,11 +425,6 @@ class LambdaMode(PolicyExecutionMode):
         TODO: better customization around execution context outputs
         TODO: support centralized lambda exec across accounts.
         """
-        region = event.get("region", "default")
-        self.policy.ctx.event.region = region
-        # This will update the output with the event region.
-        output_dir = getattr(self.policy.ctx.options, 'output_dir', '')
-        self.policy.ctx.set_output(output_dir)
 
         resources = self.resolve_resources(event)
 
