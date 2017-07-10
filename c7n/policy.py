@@ -425,9 +425,7 @@ class LambdaMode(PolicyExecutionMode):
         TODO: better customization around execution context outputs
         TODO: support centralized lambda exec across accounts.
         """
-
         resources = self.resolve_resources(event)
-
         if not resources:
             return resources
         resources = self.policy.resource_manager.filter_resources(
