@@ -57,6 +57,19 @@ class PolicyLambdaProvision(BaseTest):
         self.assertEqual(result['FunctionName'], 'custodian-sg-modified')
         self.addCleanup(mgr.remove, pl)
 
+    def test_config_rule_provision(self):
+        session_factory = self.replay_flight_data('test_config_rule')
+        p = Policy({
+            'resource': 'security-group',
+            'name': 'sg-modified',
+            'mode': {'type': 'config-rule'},
+        }, Config.empty())
+        pl = PolicyLambda(p)
+        mgr = LambdaManager(session_factory)
+        mgr.publish(pl, 'Dev', role=self.role)
+        result = mgr.remove(pl, 'Dev')
+        self.assertEqual(result['FunctionName'], 'custodian-sg-modified')
+
     def test_config_rule_evaluation(self):
         session_factory = self.replay_flight_data('test_config_rule_evaluate')
         p = self.load_policy({
